@@ -1,0 +1,155 @@
+<div class="app-home-body">
+    <div class="app-home-body__container">
+        <img class="app-home-body__main" src="assets/fon2.jpg">
+
+        <div class="app-home-body__gostin app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.gostin === 'on',
+                          'app-home-body__item--hide': allRooms?.gostin === 'off'  }">
+            <img src="assets/part/gostin.png">
+        </div>
+
+        <div class="app-home-body__kuhnya app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.kuhnya === 'on',
+                          'app-home-body__item--hide': allRooms?.kuhnya === 'off'  }">
+            <img src="assets/part/kuhnya.png">
+        </div>
+
+        <div class="app-home-body__spalnya app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.spalnya === 'on',
+                          'app-home-body__item--hide': allRooms?.spalnya === 'off'  }">
+            <img src="assets/part/spalnya.png">
+        </div>
+
+        <div class="app-home-body__vanna app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.vanna === 'on',
+                          'app-home-body__item--hide': allRooms?.vanna === 'off'  }">
+            <img src="assets/part/vanna.png">
+        </div>
+
+        <div class="app-home-body__ventilyaciya app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.ventilyaciya === 'on',
+                          'app-home-body__item--hide': allRooms?.ventilyaciya === 'off'  }">
+            <img src="assets/part/ventilyaciya.png">
+        </div>
+
+        <div class="app-home-body__otopl app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.otopl === 'on',
+                          'app-home-body__item--hide': allRooms?.otopl === 'off'  }">
+            <img src="assets/part/otopl.png">
+        </div>
+
+        <div class="app-home-body__protechki app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.protechki === 'on',
+                          'app-home-body__item--hide': allRooms?.protechki === 'off'  }">
+            <img src="assets/part/protechki.png">
+        </div>
+
+        <div class="app-home-body__otopl-vikl app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.otopl === 'off',
+                          'app-home-body__item--hide': allRooms?.otopl === 'on'  }">
+            <img src="assets/part/otopl-vikl.png">
+        </div>
+
+        <div class="app-home-body__kondic-gostin app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.gostin_kondic === 'on',
+                          'app-home-body__item--hide': allRooms?.gostin_kondic === 'off'  }">
+            <img src="assets/part/kondic-gostin.png">
+        </div>
+
+        <div class="app-home-body__kondic-spalnya app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.spalnya_kondic === 'on',
+                          'app-home-body__item--hide': allRooms?.spalnya_kondic === 'off'  }">
+            <img src="assets/part/kondic-spalnya.png">
+        </div>
+
+        <div class="app-home-body__kondic-gostin-off app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.gostin_kondic === 'off',
+                          'app-home-body__item--hide': allRooms?.gostin_kondic === 'on'  }">
+            <img src="assets/part/kondic-gostin-off.png">
+        </div>
+
+        <div class="app-home-body__kondic-spalnya-off app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.spalnya_kondic === 'off',
+                          'app-home-body__item--hide': allRooms?.spalnya_kondic === 'on'  }">
+            <img src="assets/part/kondic-spalnya-off.png">
+        </div>
+
+        <div class="app-home-body__okna-otkr app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.okna === 'off',
+                          'app-home-body__item--hide': allRooms?.okna === 'on'  }">
+            <img src="assets/part/okna-otkr.png">
+        </div>
+
+        <div class="app-home-body__okna-zakr app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.okna === 'on',
+                          'app-home-body__item--hide': allRooms?.okna === 'off'  }">
+            <img src="assets/part/okna-zakr.png">
+        </div>
+
+        <div class="app-home-body__okno-dver app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.okno_dver === 'off',
+                          'app-home-body__item--hide': allRooms?.okno_dver === 'on'  }">
+            <img src="assets/part/okno-dver.png">
+        </div>
+
+        <div class="app-home-body__okno-dver-zakr app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.okno_dver === 'on',
+                          'app-home-body__item--hide': allRooms?.okno_dver === 'off'  }">
+            <img src="assets/part/okno-dver-zakr.png">
+        </div>
+
+        <div class="app-home-body__okno-otkr app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.okno === 'on',
+                          'app-home-body__item--hide': allRooms?.okno === 'off'  }">
+            <img src="assets/part/okno-otkr.png">
+        </div>
+
+        <div class="app-home-body__okno-zakr app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.okno === 'off',
+                          'app-home-body__item--hide': allRooms?.okno === 'on'  }">
+            <img src="assets/part/okno-zakr.png">
+        </div>
+
+        <div class="app-home-body__rozetka-gostinna app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.gostin_rozetka === 'on',
+                          'app-home-body__item--hide': allRooms?.gostin_rozetka === 'off'  }">
+            <img src="assets/part/rozetka-gostinna.png">
+        </div>
+
+        <div class="app-home-body__rozetka-gostinna-off app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.gostin?.rozetka === 'off',
+                          'app-home-body__item--hide': allRooms?.gostin?.rozetka === 'on'  }">
+            <img src="assets/part/rozetka-gostinna-off.png">
+        </div>
+
+        <div class="app-home-body__rozetka-kuhnya app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.kuhnya_rozetka === 'on',
+                          'app-home-body__item--hide': allRooms?.kuhnya_rozetka === 'off'  }">
+            <img src="assets/part/rozetka-kuhnya.png">
+        </div>
+
+        <div class="app-home-body__rozetka-kuhnya-off app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.kuhnya_rozetka === 'off',
+                          'app-home-body__item--hide': allRooms?.kuhnya_rozetka === 'on'  }">
+            <img src="assets/part/rozetka-kuhnya-off.png">
+        </div>
+
+        <div class="app-home-body__rozetka-spalnya app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.spalnya_rozetka === 'on',
+                          'app-home-body__item--hide': allRooms?.spalnya_rozetka === 'off'  }">
+        <img src="assets/part/rozetka-spalnya.png">
+    </div>
+
+        <div class="app-home-body__rozetka-spalnya-off app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.spalnya_rozetka === 'off',
+                          'app-home-body__item--hide': allRooms?.spalnya_rozetka === 'on'  }">
+            <img src="assets/part/rozetka-spalnya-off.png">
+        </div>
+
+        <!--<div class="app-home-body__rozetki-vkl app-home-body__item"-->
+             <!--[ngClass]="{'app-home-body__item&#45;&#45;show': allRooms?.gostin === 'on',-->
+                          <!--'app-home-body__item&#45;&#45;hide': allRooms?.gostin === 'off'  }">-->
+            <!--<img src="assets/part/rozetki-vkl.png">-->
+        <!--</div>-->
+    </div>
+</div>

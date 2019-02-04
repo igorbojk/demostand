@@ -1,0 +1,191 @@
+.app-home-body {
+  height: 60vh;
+  background-color: #fff;
+  border: solid #00B35C;
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+  border-left-width: 0;
+  border-right-width: 0;
+  box-sizing: border-box;
+  text-align: center;
+
+  &__container {
+    display: inline-block;
+    min-width: 0;
+    width: auto;
+    height: 100%;
+    position: relative;
+  }
+
+  &__main {
+    display: block;
+    height: 100%;
+    width: auto;
+  }
+
+  &__item {
+    display: none;
+    position: absolute;
+    &--show {
+      display: block;
+    }
+    &--hide {
+      display: none;
+    }
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &__gostin {
+    top: 47.7%;
+    left: 37.1%;
+    height: 12.6vh;
+  }
+
+  &__kuhnya {
+    top: 44.7%;
+    left: 50.8%;
+    height: 13.3vh;
+  }
+
+  &__spalnya {
+    top: 14.5%;
+    left: 51.5%;
+    height: 18vh;
+  }
+
+  &__vanna {
+    top: 20.5%;
+    left: 36.8%;
+    height: 14.9vh;
+  }
+
+  &__ventilyaciya {
+    top: 18.3%;
+    left: 22.16%;
+    height: 39.4vh;
+  }
+
+  &__otopl {
+    top: 15.5%;
+    left: 23.56%;
+    height: 39vh;
+  }
+
+  &__protechki {
+    top: 40.25%;
+    left: 36.86%;
+    height: 25vh;
+  }
+
+  &__otopl-vikl {
+    top: 33.25%;
+    left: 51.86%;
+    height: 30vh;
+  }
+
+  &__kondic-gostin {
+    top: 46.25%;
+    left: 34.16%;
+    height: 17vh;
+  }
+
+  &__kondic-spalnya {
+    top: 20.05%;
+    left: 47.6%;
+    height: 17vh;
+  }
+
+  &__kondic-gostin-off {
+    top: 46.05%;
+    left: 36.6%;
+    height: 4.5vh;
+  }
+
+  &__kondic-spalnya-off {
+    top: 21%;
+    left: 60%;
+    height: 4vh;
+  }
+
+  &__okna-otkr {
+    top: 20%;
+    left: 23.5%;
+    height: 26.5vh;
+  }
+
+  &__okna-zakr {
+    top: 20.1%;
+    left: 23.5%;
+    height: 26.7vh;
+  }
+
+  &__okno-dver {
+    top: 44.1%;
+    left: 72.5%;
+    height: 12.7vh;
+  }
+
+  &__okno-dver-zakr {
+    top: 45%;
+    left: 73.1%;
+    height: 10.9vh;
+  }
+
+  &__okno-otkr {
+    top: 46%;
+    left: 28.1%;
+    height: 12.2vh;
+  }
+
+  &__okno-zakr {
+    top: 46%;
+    left: 28.1%;
+    height: 12.5vh;
+  }
+
+  &__rozetka-gostinna {
+    top: 51%;
+    left: 39.1%;
+    height: 4.1vh;
+  }
+
+  &__rozetka-gostinna-off {
+    top: 51%;
+    left: 39.1%;
+    height: 4.1vh;
+  }
+
+  &__rozetka-kuhnya {
+    top: 49.2%;
+    left: 58.56%;
+    height: 4.1vh;
+  }
+
+  &__rozetka-kuhnya-off {
+    top: 49.2%;
+    left: 58.56%;
+    height: 4.1vh;
+  }
+
+  &__rozetka-spalnya {
+    top: 33.6%;
+    left: 53.56%;
+    height: 4vh;
+  }
+
+  &__rozetka-spalnya-off {
+    top: 33.6%;
+    left: 53.56%;
+    height: 4vh;
+  }
+
+  &__rozetki-vkl {
+    top: 33.6%;
+    left: 39.2%;
+    height: 14.3vh;
+  }
+
+}

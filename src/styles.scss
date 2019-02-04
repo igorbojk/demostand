@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import "variables";
+@import "base";
+
+@import "app/modules/home/home.component";
+@import "app/modules/home/home-body/home-body.component";
+@import "app/modules/home/home-bottom/home-bottom.component";
+@import "app/modules/home/home-top/home-top.component";
+@import "app/modules/home/home-info/home-info.component";
+@import "app/modules/home/home-status/home-status.component";
