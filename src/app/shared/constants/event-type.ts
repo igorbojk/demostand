@@ -38,13 +38,22 @@ export const TYPE_EVENT = {
     // '28': 'normal_warm',
 };
 
-export const EVENTS = {
-  'gostin_light_on': {
-      rooms: {
-          gostin: 'on'
-      },
-      info: {
-          gostin: 'on'
-      }
-  }
+export const EVENTS_VARIANTS = {
+    gostin: 'on/off', // Свет в гостинной
+    kuhnya: 'on/off', // Свет в кухне
+    spalnya: 'on/off', // Свет в спальне
+    vanna: 'on/off', // Свет в ванной
+    ventilyaciya: 'on/off', // Вентиляция
+    otopl: 'on/off', // Отопление
+    protechki: 'on/off', // ротечка
+    gostin_kondic: 'on/off', // Кондиционер в гостинной
+    spalnya_kondic: 'on/off', // Кондиционер в спальне
+    window: 'on/off', // Окна
+    door: 'on/off', // Дверь
+    okno: 'on/off', // Окно
+    gostin_rozetka: 'on/off', // Розетка в гостинной
+    kuhnya_rozetka: 'on/off', // Розетка кухня
+    spalnya_rozetka: 'on/off', // Розетка спальня
+    elect_on: 'on/off', // Все розетки
 };
+
