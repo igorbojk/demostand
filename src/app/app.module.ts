@@ -7,6 +7,7 @@ import {SharedModule} from './shared/shared.module';
 import {HomeModule} from './modules/home/home.module';
 import {CoreModule} from './core/core.module';
 import {ConfigsModule} from './configs/configs.module';
+import {WebsocketService} from './shared/services/websocket/websocket.service';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,7 @@ import {ConfigsModule} from './configs/configs.module';
         // app
         AppRoutingModule
     ],
-    providers: [],
+    providers: [WebsocketService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

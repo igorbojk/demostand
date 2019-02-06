@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WS} from "../../../shared/constants/websocket.events";
-import {WebsocketService} from "../../../shared/services/websocket";
+import {WebsocketService} from '../../../shared/services/websocket/websocket.service';
+import {TYPE_EVENT} from '../../../shared/constants/event-type';
 
 @Component({
     selector: 'app-home-status',
@@ -31,7 +32,7 @@ export class HomeStatusComponent implements OnInit {
             title: 'Дом поставлен на охрану',
             img: 'oxrana.png'
         },
-        motor_off: {
+        motor: {
             status: false,
             title: 'Насос выключен',
             img: 'nasos.png'
@@ -87,17 +88,37 @@ export class HomeStatusComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.wsService.on<any>(WS.ON.MESSAGES)
-            .subscribe((
+        this.wsService.onMessage.subscribe((
                 config: any) => {
                 this.config = config;
-                console.log(config);
+                this.prepareStatus(config);
             });
     }
 
-    prepareStatus(config: Object): void {
+    prepareStatus(elems: any): void {
+        this.statusArr = [];
+        for (let key in elems) {
+            if (elems.hasOwnProperty(key)) {
 
+                if (!this.status[TYPE_EVENT[key]]) return
+                let item = this.status[TYPE_EVENT[key]];
+                item.status = elems[key];
+                this.statusArr.push(item);
+            }
+        }
+        this.checkAutoHideOff();
     }
+
+    checkAutoHideOff():void {
+        setTimeout( () => {
+            this.statusArr = [];
+        }, 4000);
+    }
+
+    getPath(item):string {
+        return 'assets/icon/'+item.img;
+    }
+
 
 
 }

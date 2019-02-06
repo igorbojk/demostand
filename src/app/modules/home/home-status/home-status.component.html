@@ -1,5 +1,6 @@
 <div class="app-home-status">
     <div class="app-home-status__item" *ngFor="let item of statusArr">
-
+        <img [src]="getPath(item)" alt="{{ item[item.status] }}">
+        <span> {{ item.title }}</span>
     </div>
 </div>

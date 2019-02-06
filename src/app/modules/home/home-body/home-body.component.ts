@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {WebsocketService} from "../../../shared/services/websocket";
 import {IMessage} from "../../../shared/models/imessage.model";
 import {WS} from "../../../shared/constants/websocket.events";
 import {TYPE_EVENT} from "../../../shared/constants/event-type";
+import {WebsocketService} from '../../../shared/services/websocket/websocket.service';
 
 @Component({
     selector: 'app-home-body',
@@ -11,26 +11,28 @@ import {TYPE_EVENT} from "../../../shared/constants/event-type";
 })
 export class HomeBodyComponent implements OnInit {
 
-    allRooms : any = {};
+    allRooms: any = {};
 
     constructor(private wsService: WebsocketService) {
     }
 
     ngOnInit() {
-        this.wsService.on<any>(WS.ON.MESSAGES)
-            .subscribe((
-                rooms: any) => {
-                // this.allRooms = rooms;
-                this.checkRoom(rooms);
-                console.log(rooms);
-            });
+        this.wsService.onMessage.subscribe((
+            rooms: any) => {
+            // this.allRooms = rooms;
+            this.checkRoom(rooms);
+            console.log(rooms);
+        });
+
     }
 
-    checkAutoHideOff():void {
+// {"kuhnya":"on"}
+
+    checkAutoHideOff(): void {
         setTimeout( () => {
-            for (let key in this.allRooms) {
+            for (const key in this.allRooms) {
                 if (this.allRooms.hasOwnProperty(key)) {
-                    if(this.allRooms[key] === 'off'){
+                    if (this.allRooms[key] === 'off') {
                         this.allRooms[key] = null;
                     }
                 }
@@ -38,13 +40,14 @@ export class HomeBodyComponent implements OnInit {
         }, 4000);
     }
 
-    checkRoom(rooms: any):void {
-        for (let key in rooms) {
+    checkRoom(rooms: any): void {
+
+        for (const key in rooms) {
             if (rooms.hasOwnProperty(key)) {
                 this.allRooms[TYPE_EVENT[key]] = rooms[key];
             }
         }
-        this.checkAutoHideOff();
+        // this.checkAutoHideOff();
     }
 
 }

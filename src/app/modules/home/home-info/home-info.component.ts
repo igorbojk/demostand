@@ -1,7 +1,7 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {WS} from "../../../shared/constants/websocket.events";
-import {WebsocketService} from "../../../shared/services/websocket";
 import {TYPE_EVENT} from "../../../shared/constants/event-type";
+import {WebsocketService} from '../../../shared/services/websocket/websocket.service';
 
 @Component({
     selector: 'app-home-info',
@@ -128,8 +128,7 @@ export class HomeInfoComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.wsService.on<any>(WS.ON.MESSAGES)
-            .subscribe((
+        this.wsService.onMessage.subscribe((
                 elems: any) => {
                 // this.allRooms = rooms;
                 console.log(elems);
@@ -153,6 +152,7 @@ export class HomeInfoComponent implements OnInit {
         this.statusItems = [];
         for (let key in elems) {
             if (elems.hasOwnProperty(key)) {
+                if (!this.status[TYPE_EVENT[key]]) return
                 let item = this.status[TYPE_EVENT[key]];
                 item.status = elems[key];
                 this.statusItems.push(item);
