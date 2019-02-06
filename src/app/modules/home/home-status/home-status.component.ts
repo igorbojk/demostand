@@ -91,21 +91,19 @@ export class HomeStatusComponent implements OnInit {
         this.wsService.onMessage.subscribe((
             data: any) => {
             if (!data) return
-            this.prepareStatus(data.event);
+            this.prepareStatus(data.status);
         });
     }
 
-    prepareStatus(event: any): void {
-        const elems = EVENTS[event].status;
-        if (!elems) return
-        for (let key in elems) {
-            if (elems.hasOwnProperty(key)) {
-                if (!this.status[TYPE_EVENT[key]]) continue
-                let item = this.status[TYPE_EVENT[key]];
-                item.status = elems[key];
-                this.statusArr.push(item);
-            }
-        }
+    prepareStatus(elems: any): void {
+        if (!elems.length) return
+        elems.forEach((key) => {
+            if (!this.status[key]) return
+            let item = this.status[key];
+            item.status = key;
+            this.statusArr.push(item);
+        });
+
         this.checkAutoHideOff();
     }
 

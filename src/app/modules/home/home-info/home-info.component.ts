@@ -1,6 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
-import {WS} from "../../../shared/constants/websocket.events";
-import {TYPE_EVENT, EVENTS} from "../../../shared/constants/event-type";
+import {EVENTS} from '../../../shared/constants/event-type';
 import {WebsocketService} from '../../../shared/services/websocket/websocket.service';
 
 @Component({
@@ -115,6 +114,13 @@ export class HomeInfoComponent implements OnInit {
             off: 'Отопление выключено',
             img_on: 'otopl-vkl.png',
             img_off: 'otopl-vikl.png'
+        },
+        elect_on: {
+            status: false,
+            on: 'Все розетки включены',
+            off: 'Все розетки выключены',
+            img_on: 'rozetka.png',
+            img_off: 'rozetka.png'
         }
     };
 
@@ -122,7 +128,7 @@ export class HomeInfoComponent implements OnInit {
     constructor(private wsService: WebsocketService) {
     }
 
-    checkAutoHideOff():void {
+    checkAutoHideOff(): void {
         setTimeout( () => {
             this.statusItems = [];
         }, 4000);
@@ -132,7 +138,7 @@ export class HomeInfoComponent implements OnInit {
         this.wsService.onMessage.subscribe((
             data: any) => {
                 if (!data) return
-                this.prepareInfo(data.event);
+                this.prepareInfo(data.info);
             });
     }
 
@@ -140,21 +146,21 @@ export class HomeInfoComponent implements OnInit {
         return index;
     }
 
-    getPath(item):string {
-        return 'assets/icon/'+item['img_'+item.status];
+    getPath(item): string {
+        return 'assets/icon/' + item['img_' + item.status];
     }
 
-    getTitle(item):string {
+    getTitle(item): string {
         return item[item.status];
     }
 
-    prepareInfo(event: any): void {
-        const elems = EVENTS[event].info;
-        for (let key in elems) {
-            console.log(key);
+    prepareInfo(elems: any): void {
+        for (const key in elems) {
             if (elems.hasOwnProperty(key)) {
-                if (!this.status[key]) continue
-                let item = this.status[key];
+                if (!this.status[key]) {
+                    continue;
+                }
+                const item = this.status[key];
                 item.status = elems[key];
                 this.statusItems.push(item);
             }
