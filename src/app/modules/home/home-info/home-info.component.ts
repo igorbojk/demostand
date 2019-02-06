@@ -155,6 +155,7 @@ export class HomeInfoComponent implements OnInit {
     }
 
     prepareInfo(elems: any): void {
+        this.statusItems = [];
         for (const key in elems) {
             if (elems.hasOwnProperty(key)) {
                 if (!this.status[key]) {

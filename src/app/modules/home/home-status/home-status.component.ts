@@ -96,6 +96,7 @@ export class HomeStatusComponent implements OnInit {
     }
 
     prepareStatus(elems: any): void {
+        this.statusArr = [];
         if (!elems.length) return
         elems.forEach((key) => {
             if (!this.status[key]) return

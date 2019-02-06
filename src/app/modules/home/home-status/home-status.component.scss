@@ -2,7 +2,8 @@
   height: 12.5vh;
   background-color: #F5F5F5;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   &__item {
     margin-left: 20px;
     font-size: 40px;
