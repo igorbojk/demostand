@@ -1,6 +1,6 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {WS} from "../../../shared/constants/websocket.events";
-import {TYPE_EVENT} from "../../../shared/constants/event-type";
+import {TYPE_EVENT, EVENTS} from "../../../shared/constants/event-type";
 import {WebsocketService} from '../../../shared/services/websocket/websocket.service';
 
 @Component({
@@ -12,11 +12,11 @@ import {WebsocketService} from '../../../shared/services/websocket/websocket.ser
 export class HomeInfoComponent implements OnInit {
 
     statusItems: any = [];
-    allRooms: any = {};
     status: any = {
-        all_light_off: {
+        all_light: {
             status: false,
-            on: 'Весь свет выключен',
+            off: 'Весь свет выключен',
+            on: 'Весь свет включен',
             img_on: 'lamp.png',
             img_off: 'lamp.png',
         },
@@ -45,7 +45,7 @@ export class HomeInfoComponent implements OnInit {
             status: false,
             on: 'Дом открыт',
             off: 'Дом закрыт',
-            img_on: 'close.png',
+            img_on: 'open.png',
             img_off: 'close.png',
         },
         okno: {
@@ -118,6 +118,7 @@ export class HomeInfoComponent implements OnInit {
         }
     };
 
+
     constructor(private wsService: WebsocketService) {
     }
 
@@ -129,10 +130,9 @@ export class HomeInfoComponent implements OnInit {
 
     ngOnInit() {
         this.wsService.onMessage.subscribe((
-                elems: any) => {
-                // this.allRooms = rooms;
-                console.log(elems);
-                this.prepareInfo(elems);
+            data: any) => {
+                if (!data) return
+                this.prepareInfo(data.event);
             });
     }
 
@@ -148,12 +148,13 @@ export class HomeInfoComponent implements OnInit {
         return item[item.status];
     }
 
-    prepareInfo(elems: any): void {
-        this.statusItems = [];
+    prepareInfo(event: any): void {
+        const elems = EVENTS[event].info;
         for (let key in elems) {
+            console.log(key);
             if (elems.hasOwnProperty(key)) {
-                if (!this.status[TYPE_EVENT[key]]) return
-                let item = this.status[TYPE_EVENT[key]];
+                if (!this.status[key]) continue
+                let item = this.status[key];
                 item.status = elems[key];
                 this.statusItems.push(item);
             }

@@ -1,6 +1,6 @@
 <div class="app-home-info">
     <div class="app-home-info__container">
-        <span class="app-home-info__item" *ngFor="let item of statusItems; trackBy: trackItem">
+        <span class="app-home-info__item" *ngFor="let item of statusItems;">
             <img [src]="getPath(item)" alt="{{ item[item.status] }}">
             <span> {{ getTitle(item) }}</span>
         </span>

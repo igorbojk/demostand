@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IMessage} from "../../../shared/models/imessage.model";
 import {WS} from "../../../shared/constants/websocket.events";
-import {TYPE_EVENT} from "../../../shared/constants/event-type";
+import {TYPE_EVENT, EVENTS} from "../../../shared/constants/event-type";
 import {WebsocketService} from '../../../shared/services/websocket/websocket.service';
 
 @Component({
@@ -18,15 +18,13 @@ export class HomeBodyComponent implements OnInit {
 
     ngOnInit() {
         this.wsService.onMessage.subscribe((
-            rooms: any) => {
+            data: any) => {
             // this.allRooms = rooms;
-            this.checkRoom(rooms);
-            console.log(rooms);
+            if (!data) return
+            this.checkRoom(data.events);
         });
 
     }
-
-// {"kuhnya":"on"}
 
     checkAutoHideOff(): void {
         setTimeout( () => {
@@ -41,13 +39,12 @@ export class HomeBodyComponent implements OnInit {
     }
 
     checkRoom(rooms: any): void {
-
         for (const key in rooms) {
             if (rooms.hasOwnProperty(key)) {
-                this.allRooms[TYPE_EVENT[key]] = rooms[key];
+                this.allRooms[key] = rooms[key];
             }
         }
-        // this.checkAutoHideOff();
+        this.checkAutoHideOff();
     }
 
 }

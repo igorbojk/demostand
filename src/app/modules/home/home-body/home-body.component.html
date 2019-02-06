@@ -75,26 +75,26 @@
         </div>
 
         <div class="app-home-body__okna-otkr app-home-body__item"
-             [ngClass]="{'app-home-body__item--show': allRooms?.okna === 'off',
-                          'app-home-body__item--hide': allRooms?.okna === 'on'  }">
-            <img src="assets/part/okna-otkr.png">
-        </div>
-
-        <div class="app-home-body__okna-zakr app-home-body__item"
-             [ngClass]="{'app-home-body__item--show': allRooms?.okna === 'on',
-                          'app-home-body__item--hide': allRooms?.okna === 'off'  }">
+             [ngClass]="{'app-home-body__item--show': allRooms?.window === 'off',
+                          'app-home-body__item--hide': allRooms?.window === 'on'  }">
             <img src="assets/part/okna-zakr.png">
         </div>
 
+        <div class="app-home-body__okna-zakr app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.window === 'on',
+                          'app-home-body__item--hide': allRooms?.window === 'off'  }">
+            <img src="assets/part/okna-otkr.png">
+        </div>
+
         <div class="app-home-body__okno-dver app-home-body__item"
-             [ngClass]="{'app-home-body__item--show': allRooms?.okno_dver === 'off',
-                          'app-home-body__item--hide': allRooms?.okno_dver === 'on'  }">
+             [ngClass]="{'app-home-body__item--show': allRooms?.door === 'off',
+                          'app-home-body__item--hide': allRooms?.door === 'on'  }">
             <img src="assets/part/okno-dver.png">
         </div>
 
         <div class="app-home-body__okno-dver-zakr app-home-body__item"
-             [ngClass]="{'app-home-body__item--show': allRooms?.okno_dver === 'on',
-                          'app-home-body__item--hide': allRooms?.okno_dver === 'off'  }">
+             [ngClass]="{'app-home-body__item--show': allRooms?.door === 'on',
+                          'app-home-body__item--hide': allRooms?.door === 'off'  }">
             <img src="assets/part/okno-dver-zakr.png">
         </div>
 
@@ -146,10 +146,10 @@
             <img src="assets/part/rozetka-spalnya-off.png">
         </div>
 
-        <!--<div class="app-home-body__rozetki-vkl app-home-body__item"-->
-             <!--[ngClass]="{'app-home-body__item&#45;&#45;show': allRooms?.gostin === 'on',-->
-                          <!--'app-home-body__item&#45;&#45;hide': allRooms?.gostin === 'off'  }">-->
-            <!--<img src="assets/part/rozetki-vkl.png">-->
-        <!--</div>-->
+        <div class="app-home-body__rozetki-vkl app-home-body__item"
+             [ngClass]="{'app-home-body__item--show': allRooms?.elect_on === 'on',
+                          'app-home-body__item--hide': allRooms?.elect_on === 'off'  }">
+            <img src="assets/part/rozetki-vkl.png">
+        </div>
     </div>
 </div>

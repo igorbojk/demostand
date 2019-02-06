@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WS} from "../../../shared/constants/websocket.events";
 import {WebsocketService} from '../../../shared/services/websocket/websocket.service';
-import {TYPE_EVENT} from '../../../shared/constants/event-type';
+import {EVENTS, TYPE_EVENT} from '../../../shared/constants/event-type';
 
 @Component({
     selector: 'app-home-status',
@@ -12,12 +12,12 @@ export class HomeStatusComponent implements OnInit {
     statusArr: Array<any> = [];
     config: any = {};
     status: any = {
-        door_closed: {
+        door: {
             status: false,
             title: 'Двери закрыты',
             img: 'dver.png'
         },
-        window_closed: {
+        window: {
             status: false,
             title: 'Окна закрыты',
             img: 'okno.png'
@@ -27,9 +27,14 @@ export class HomeStatusComponent implements OnInit {
             title: 'Эко-режим отопления',
             img: 'eco.png'
         },
-        house_lock: {
+        house_locked: {
             status: false,
             title: 'Дом поставлен на охрану',
+            img: 'oxrana.png'
+        },
+        house_unlocked: {
+            status: false,
+            title: 'Дом снят с охраны',
             img: 'oxrana.png'
         },
         motor: {
@@ -76,11 +81,6 @@ export class HomeStatusComponent implements OnInit {
             status: false,
             title: 'Обычный режим отопления',
             img: 'otopl.png'
-        },
-        house_unlocked: {
-            status: false,
-            title: 'Дом снят с охраны',
-            img: 'oxrana.png'
         }
     };
 
@@ -89,18 +89,18 @@ export class HomeStatusComponent implements OnInit {
 
     ngOnInit() {
         this.wsService.onMessage.subscribe((
-                config: any) => {
-                this.config = config;
-                this.prepareStatus(config);
-            });
+            data: any) => {
+            if (!data) return
+            this.prepareStatus(data.event);
+        });
     }
 
-    prepareStatus(elems: any): void {
-        this.statusArr = [];
+    prepareStatus(event: any): void {
+        const elems = EVENTS[event].status;
+        if (!elems) return
         for (let key in elems) {
             if (elems.hasOwnProperty(key)) {
-
-                if (!this.status[TYPE_EVENT[key]]) return
+                if (!this.status[TYPE_EVENT[key]]) continue
                 let item = this.status[TYPE_EVENT[key]];
                 item.status = elems[key];
                 this.statusArr.push(item);
